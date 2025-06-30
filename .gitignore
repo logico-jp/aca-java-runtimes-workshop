@@ -49,4 +49,8 @@ nb-configuration.xml
 create.sql
 drop.sql
 
+# Environment files that may contain secrets
+.env
+.env.*
+
 *.dylib
