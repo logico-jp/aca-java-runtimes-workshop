@@ -26,7 +26,14 @@ export REGISTRY="crjavaruntimes${UNIQUE_IDENTIFIER}"
 export IMAGES_TAG="1.0"
 
 export POSTGRES_DB_ADMIN="javaruntimesadmin"
-export POSTGRES_DB_PWD="java-runtimes-p#ssw0rd-12046"
+
+# Prompt for PostgreSQL password if not already set
+if [ -z "$POSTGRES_DB_PWD" ]; then
+  echo "Please enter the PostgreSQL database password:"
+  read -s POSTGRES_DB_PWD
+  echo  # Print a new line after the hidden input
+fi
+export POSTGRES_DB_PWD
 export POSTGRES_DB_VERSION="14"
 export POSTGRES_SKU="Standard_B1ms"
 export POSTGRES_TIER="Burstable"

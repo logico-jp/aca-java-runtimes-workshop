@@ -13,7 +13,12 @@ set "REGISTRY=crjavaruntimes${UNIQUE_IDENTIFIER}"
 set "IMAGES_TAG=1.0"
 
 set "POSTGRES_DB_ADMIN=javaruntimesadmin"
-set "POSTGRES_DB_PWD=java-runtimes-p#ssw0rd-12046"
+
+REM Prompt for PostgreSQL password if not already set
+if not defined POSTGRES_DB_PWD (
+    echo Please enter the PostgreSQL database password:
+    set /p "POSTGRES_DB_PWD="
+)
 set "POSTGRES_DB_VERSION=14"
 set "POSTGRES_SKU=Standard_B1ms"
 set "POSTGRES_TIER=Burstable"
